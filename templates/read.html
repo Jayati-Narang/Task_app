@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    table, th, td {
+  border: 1px solid black;
+}
+</style>
+</head>
+<body style="background-color:#9da0a0;">
+    <nav class="navbar navbar-light" style="background-color:#1c1d22;">
+        
+        <a class="navbar-link btn-lg" href="{% url 'index' %}" style="background-color:#FFCC33;color:#000000;">Current Data</a>
+        <a href="{% url 'top_5' %}" class="navbar-link btn-lg" style="background-color:#FFCC33;color:#000000;">Top 5</a>
+        <a href="{% url 'total_payment_wise' %}" class="navbar-link btn-lg" style="background-color:#FFCC33;color:#000000;">Total Payment Wise</a>
+        <a href="{% url 'avg_rating' %}" class="navbar-link btn-lg" style="background-color:#FFCC33;color:#000000;">Average Rating </a>
+        
+        <a href="{% url 'create' %}" class="navbar-link btn-lg" style="background-color:#FFCC33;color:#000000;">Upload Data</a>
+    </nav>
+<br>
+{% block content %}
+<table style="width:100%;">
+    <tr>
+        <th>Invoice Id</th>
+        <th>Branch</th>
+        <th>City</th>
+        <th>Customer</th>
+        <th>Gender</th>
+        <th>Product Line</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Tax</th>
+        <th>Total</th>
+        <th>Payment Mode</th>
+        <th>Rating</th>
+
+    </tr>
+    {% for x in data %}
+   <tr>
+       <td>{{ x.invoice_id }}</td>
+       <td>{{ x.branch}}</td>
+       <td>{{x.city}}</td>
+        <td>{{x.customer_type}}</td>
+        <td>{{x.gender}}</td>
+        <td>{{x.product_line}}</td>
+        <td>{{x.unit_price}}</td>
+        <td>{{x.quantity}}</td>
+        <td>{{x.tax}}</td>
+        <td>{{x.total}}</td>
+        <td>{{x.payment_mode}}</td>
+       <td>{{ x.rating }} </td>
+   
+   <!-- <center> -->
+      <td><a href="update/{{x.invoice_id}}" class="btn btn-warning" id = '{{x.invoice_id}}'>edit</a></td>
+       <td><a href="delete/{{x.invoice_id}}" class="btn btn-danger" id = '{{x.invoice_id}}'>delete</a></td>
+    <!-- </center> -->
+</tr>
+    <!-- </div>
+  </div>
+</div> -->
+    {% endfor %}
+</table>
+</div>
+{% endblock %}
+</body>
+</html>

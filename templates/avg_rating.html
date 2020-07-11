@@ -1,0 +1,26 @@
+{% extends 'read.html' %}
+{% block content %}
+<table class="table" style="width:100%;">
+    <tr>
+   
+        <th style="text-align: center;">Branch</th>
+        <th style="text-align: center;">Product Line</th>
+        <th style="text-align: center;">Average Rating</th>
+        
+
+    </tr>
+    
+    {% for x in data %}
+    <tbody>
+        <tr>
+            <td style="font-size:14px;text-align:center">{{x.branch}}</td>
+            <td style="font-size:14px;text-align:center">{{x.product_line}}</td>
+             <td style="font-size:14px;text-align:center">{{x.Average}}</td>
+             
+            
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}

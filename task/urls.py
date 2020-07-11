@@ -18,7 +18,11 @@ from django.urls import path
 from TASK import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('top_5/', views.top_5_rated),
-    path('total_payment_wise/', views.total_payment_wise),
-    path('avg_branch_wise/', views.avg_rating_product_branch_wise),
+    path('', views.index, name= 'index'), 
+    path('create/', views.create, name='create'),
+    path('update/<invoice_id>', views.update_data),
+    path('delete/<invoice_id>', views.delete_data),
+    path('top_5/', views.top_5_rated, name='top_5'),
+    path('total_payment_wise/', views.total_payment_wise, name='total_payment_wise'),
+    path('avg_branch_wise/', views.avg_rating_product_branch_wise, name='avg_rating'),
 ]

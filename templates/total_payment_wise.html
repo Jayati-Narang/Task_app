@@ -1,0 +1,25 @@
+{% extends 'read.html' %}
+{% block content %}
+<table class="table" style="width:100%;">
+    <tr>
+   
+        
+        <th style="text-align: center;">Payment Mode</th>
+        <th style="text-align: center;">Total</th>
+        
+
+    </tr>
+    
+    {% for x in data %}
+    <tbody>
+        <tr>
+            <td style="font-size:14px;text-align:center">{{x.payment_mode}}</td>
+             <td style="font-size:14px;text-align:center">{{x.Total}}</td>
+             
+            
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}

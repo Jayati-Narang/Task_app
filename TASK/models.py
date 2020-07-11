@@ -37,7 +37,8 @@ class Data(models.Model):
         x = []
         objs = self.objects.raw(' SELECT * FROM( SELECT *, @rn := IF(@prev = city, @rn + 1, 1) AS rn, @prev := city FROM Data JOIN (SELECT @prev := NULL, @rn := 0) AS vars ORDER BY city, rating DESC) AS T1 WHERE rn <= 5;')
         for o in objs:
-            x.append([o.product_line, o.city, o.rating])
+            # x.append([o.product_line, o.city, o.rating])
+            x.append(o)
         return x
     
     def get_total_payment_wise(self):

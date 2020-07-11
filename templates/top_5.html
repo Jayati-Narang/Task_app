@@ -1,0 +1,40 @@
+{% extends 'read.html' %}
+{% block content %}
+<table class="table" style="width:100%;">
+    <tr>
+        <th>Invoice Id</th>
+        <th>Branch</th>
+        <th>City</th>
+        <th>Customer</th>
+        <th>Gender</th>
+        <th>Product Line</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Tax</th>
+        <th>Total</th>
+        <th>Payment Mode</th>
+        <th>Rating</th>
+
+    </tr>
+    
+    {% for x in data %}
+    <tbody>
+        <tr>
+            <td style="font-size:14px;text-align:center">{{ x.invoice_id }}</td>
+            <td style="font-size:14px;text-align:center">{{ x.branch}}</td>
+            <td style="font-size:14px;text-align:center">{{x.city}}</td>
+             <td style="font-size:14px;text-align:center">{{x.customer_type}}</td>
+             <td style="font-size:14px;text-align:center">{{x.gender}}</td>
+             <td style="font-size:14px;text-align:center">{{x.product_line}}</td>
+             <td style="font-size:14px;text-align:center">{{x.unit_price}}</td>
+             <td style="font-size:14px;text-align:center">{{x.quantity}}</td>
+             <td style="font-size:14px;text-align:center">{{x.tax}}</td>
+             <td style="font-size:14px;text-align:center">{{x.total}}</td>
+             <td style="font-size:14px;text-align:center">{{x.payment_mode}}</td>
+            <td style="font-size:14px;text-align:center">{{ x.rating }} </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}
